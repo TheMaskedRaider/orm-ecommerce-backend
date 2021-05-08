@@ -11,7 +11,7 @@ class Product extends Model {}
 Product.init(
   {
     // define columns
-      product_id: {
+      id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
@@ -24,6 +24,7 @@ Product.init(
       product_price: {
         type: DataTypes.DECIMAL,
         allowNull: false,
+        defaultValue: 10,
         validate:{
           isDecimal: true
         }
@@ -41,7 +42,7 @@ Product.init(
         type: DataTypes.INTEGER,
         references: {
             model: "category",
-            key: "category_id"
+            key: "id"
         }
     }
   },
